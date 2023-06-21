@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "version": "3",
+  "name": "study",
+  "description": "123",
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/content-script.js"],
+    "run_at": "document_end"
+  }],
+  "web_accessible_resources": [
+    {
+      "resources": ["iframe.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "permissions": ["storage","scripting","activeTab","tabs",
+    "notifications",
+    "http://*/*",
+    "https://*/*",
+    "https://*.youtube.com/*"
+  ]
+}
